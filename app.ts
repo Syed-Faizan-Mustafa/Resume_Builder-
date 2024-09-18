@@ -19,7 +19,7 @@ resumeForm.addEventListener('submit', (event: Event) => {
 
     // Generate Dynamic & Editable Resume Content:
     const resumeHTML = `
-<div class="tsdiv">
+<div class="tsdiv" contenteditable = "true">
 <h2><b>Editable Resume</b></h2>
 <h3>Personal Information</h3>
 <p><b>Name:</b><span contenteditable="true">${name}</span></p>
