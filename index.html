@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="body">
+    <h1 class="h1">Dynamic Resume Builder</h1>
+    <form id="resume_form" class="resume_form">
+        <fieldset class="fieldset">
+            <legend class="legend">Personal Information</legend>
+            <label for="name" class="label">Name:</label>
+            <input class="textarea_input" type="text" placeholder="Enter Your Name" id="name" required>
+
+            <label for="email" class="label">Email:</label>
+            <input class="textarea_input" type="text" placeholder="Enter Your Email" id="email" required>
+
+            <label for="phone" class="label">Phone:</label>
+            <input class="textarea_input" type="text" placeholder="Enter Your Name" id="phone" required>
+
+            <label for="address" class="label">Address:</label>
+            <input class="textarea_input" type="text" placeholder="Enter Your Address" id="address" required>
+        </fieldset>
+
+        <fieldset class="fieldset">
+            <legend class="legend">Education</legend>
+            <textarea class="textarea_input" type="text" placeholder="Enter Your Education" id="education" rows="4"
+                required></textarea>
+        </fieldset>
+
+
+        <fieldset class="fieldset">
+            <legend class="legend">Experience</legend>
+            <textarea class="textarea_input" type="text" placeholder="Enter Your Experience" id="experience" rows="4"
+                required></textarea>
+        </fieldset>
+
+
+        <fieldset class="fieldset">
+            <legend class="legend">Skills</legend>
+            <textarea class="textarea_input" type="text" placeholder="Enter Your Skills" id="skills" rows="4"
+                required></textarea>
+        </fieldset>
+
+        <button id="submit_button" class="submit_button" type="submit"><b>Generate Resume</b></button>
+    </form>
+    <!-- Dynamic Resume -->
+    <div id="resume_display">
+        <!-- Resume will be generated below -->
+    </div>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
