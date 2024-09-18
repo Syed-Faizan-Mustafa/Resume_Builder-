@@ -76,3 +76,7 @@
 .buttonGen:hover {
     background-color: #adbccc;
 }
+
+.shareable_link_container{
+    display: none;
+}

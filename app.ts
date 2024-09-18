@@ -1,12 +1,16 @@
 // Get References to the form and display area:
 var resumeForm = document.getElementById('resume_form') as HTMLFormElement;
 var resumeDisplayElement = document.getElementById('resume_display') as HTMLDivElement;
+var shareableLinkContainer = document.getElementById('shareable_link_container') as HTMLDivElement
+var ShareableLink = document.getElementById('href_link') as HTMLLinkElement
+var downloadButton = document.getElementById('download_pdf') as HTMLButtonElement
 
 // Handling Form Submission:
 resumeForm.addEventListener('submit', (event: Event) => {
     event.preventDefault(); //prevent page reload.
 
     // Collect Input Values
+    const username = (document.getElementById('username')as HTMLInputElement).value
     const name = (document.getElementById('name') as HTMLInputElement).value
     const email = (document.getElementById('email') as HTMLInputElement).value
     const phone = (document.getElementById('phone') as HTMLInputElement).value
@@ -14,6 +18,18 @@ resumeForm.addEventListener('submit', (event: Event) => {
     const education = (document.getElementById('education') as HTMLInputElement).value
     const experience = (document.getElementById('experience') as HTMLInputElement).value
     const skills = (document.getElementById('skills') as HTMLInputElement).value
+
+    // save from data in local storage with the username as the key
+    const resumeData = {
+        name,
+        email,
+        phone,
+        education,
+        experience,
+        skills
+
+    };
+localStorage.setItem(username, JSON.stringify(resumeData)); // saving the data locally.
 
 
 

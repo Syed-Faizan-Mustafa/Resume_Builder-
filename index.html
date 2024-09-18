@@ -4,15 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editable Resume Builder</title>
+    <title>Shareable Resume Builder</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="body">
-    <h1 class="h1">Editable Resume Builder</h1>
+    <h1 class="h1">Shareable Resume Builder</h1>
     <form id="resume_form" class="resume_form">
         <fieldset class="fieldset">
             <legend class="legend">Personal Information</legend>
+            
+            <label for="username" class="label">Username:</label>
+            <input class="textarea_input" type="username" placeholder="Enter Your username" id="username" required>
+            <!-- increased one element of USERNAME due to project requirement for milestone 5 -->
             <label for="name" class="label">Name:</label>
             <input class="textarea_input" type="text" placeholder="Enter Your Name" id="name" required>
 
@@ -48,12 +52,26 @@
 
         <button id="submit_button" class="submit_button" type="submit"><b>Generate Resume</b></button>
     </form>
-    <!-- Dynamic & Editable Resume -->
+    <!-- Dynamic, Editable  & Shareable Resume -->
     <div id="resume_display" > 
  <!--contenteditable attribute is allow us to edit your content within the browser-->
 
         <!-- Resume will be generated below -->
     </div>
+
+    <br>
+<!-- section for shareable and download pdf. -->
+  <div id="shareable_link_container" class="shareable_link_container">
+    <h2>Shareable Link</h2>
+    <p>Here is your unique link to view and edit your resume</p>
+    <a href="#" id="href_link" target="_blank"></a>
+
+    <br>
+
+    <button id="download_pdf"><b>Download as PDF</b></button>
+
+  </div>
+
     <script src="app.js"></script>
 
 </body>
