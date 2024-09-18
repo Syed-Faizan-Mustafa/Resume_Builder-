@@ -17,27 +17,18 @@ resumeForm.addEventListener('submit', (event: Event) => {
 
 
 
-    // Generate Dynamic Resume Content:
+    // Generate Dynamic & Editable Resume Content:
     const resumeHTML = `
 <div class="tsdiv">
-<h2><b>Resume</b></h2>
+<h2><b>Editable Resume</b></h2>
 <h3>Personal Information</h3>
-<p><b>Name:</b>${name}</p>
-<p><b>Email:</b>${email}</p>
-<p><b>Phone:</b>${phone}</p>
-<p><b>Address:</b>${address}</p>
-<p><b>Education:</b>${education}</p>
-<p><b>Experience:</b>${experience}</p>
-<p><b>Skills:</b>${skills}</p>
-
-<h3>Education</h3>
-<p>${education}</p>
-
-<h3>Experience</h3>
-<p>${experience}</p>
-
-<h3>Skills</h3>
-<p>${skills}</p>
+<p><b>Name:</b><span contenteditable="true">${name}</span></p>
+<p><b>Email:</b><span contenteditable="true">${email}</span></p>
+<p><b>Phone:</b><span contenteditable="true">${phone}</span></p>
+<p><b>Address:</b><span contenteditable="true">${address}</span></p>
+<p><b>Education:</b><span contenteditable="true">${education}</span></p>
+<p><b>Experience:</b><span contenteditable="true">${experience}</span></p>
+<p><b>Skills:</b><span contenteditable="true">${skills}</span></p>
 </div>
 
 `;
@@ -45,7 +36,7 @@ resumeForm.addEventListener('submit', (event: Event) => {
     if (resumeDisplayElement) {
         resumeDisplayElement.innerHTML = resumeHTML;
     } else {
-        console.error('Display element not found. abcd') // this is for to force users to fill form fields.
+        console.error('Display element not found.') // this is for to force users to fill form fields.
     }
 
 })
