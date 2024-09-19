@@ -10,7 +10,7 @@ resumeForm.addEventListener('submit', (event: Event) => {
     event.preventDefault(); //prevent page reload.
 
     // Collect Input Values
-    const username = (document.getElementById('username')as HTMLInputElement).value
+    const username = (document.getElementById('username') as HTMLInputElement).value
     const name = (document.getElementById('name') as HTMLInputElement).value
     const email = (document.getElementById('email') as HTMLInputElement).value
     const phone = (document.getElementById('phone') as HTMLInputElement).value
@@ -29,7 +29,7 @@ resumeForm.addEventListener('submit', (event: Event) => {
         skills
 
     };
-localStorage.setItem(username, JSON.stringify(resumeData)); // saving the data locally.
+    localStorage.setItem(username, JSON.stringify(resumeData)); // saving the data locally.
 
 
 
@@ -48,11 +48,44 @@ localStorage.setItem(username, JSON.stringify(resumeData)); // saving the data l
 </div>
 
 `;
-    // Displaying the Resume after statment:it will be show in div
-    if (resumeDisplayElement) {
-        resumeDisplayElement.innerHTML = resumeHTML;
-    } else {
-        console.error('Display element not found.') // this is for to force users to fill form fields.
-    }
+    // Display the genetated resume.    
+    resumeDisplayElement.innerHTML = resumeHTML;
 
+    // Generate the Shareable url with the username only.
+    const shareableURL = `${window.location.origin}?username${encodeURIComponent(username)}`;
+
+    // Display the shareable link.
+    shareableLinkContainer.style.display = 'block';
+    ShareableLink.href = shareableURL;
+    ShareableLink.textContent = shareableURL;
 })
+
+    // Handle PDF Download.
+    downloadButton.addEventListener('click', () => {
+        window.print(); //This will open the print dailogue and allow the user to save as PDF.
+    });
+
+    //Prefill form based on the username in the url.
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        if (username) {
+            const savedResumeData = localStorage.getItem(username);
+            if (savedResumeData) {
+                const resumeData = JSON.parse(savedResumeData);
+                (document.getElementById('username') as HTMLInputElement).value = username;
+                (document.getElementById('name') as HTMLInputElement).value = resumeData.name;
+                (document.getElementById('email') as HTMLInputElement).value = resumeData.email;
+                (document.getElementById('phone') as HTMLInputElement).value = resumeData.phone;
+                (document.getElementById('address') as HTMLInputElement).value = resumeData.address;
+                (document.getElementById('education') as HTMLInputElement).value = resumeData.education;
+                (document.getElementById('experience') as HTMLInputElement).value = resumeData.experience;
+                (document.getElementById('skills') as HTMLInputElement).value = resumeData.skills;
+
+
+            }
+        }
+    })
+
+
+
